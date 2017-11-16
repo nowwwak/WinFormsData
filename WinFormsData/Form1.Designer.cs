@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.CategoryToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
@@ -48,6 +49,12 @@
             this.ProductsListBox = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ProductsDataGridView = new System.Windows.Forms.DataGridView();
+            this.SingleNameTextBox = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.SingleQuantityTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -93,6 +100,11 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.SingleQuantityTextBox);
+            this.tabPage1.Controls.Add(this.SingleNameTextBox);
             this.tabPage1.Controls.Add(this.Label7);
             this.tabPage1.Controls.Add(this.Label6);
             this.tabPage1.Controls.Add(this.Label5);
@@ -220,6 +232,7 @@
             this.ProductsListBox.Name = "ProductsListBox";
             this.ProductsListBox.Size = new System.Drawing.Size(161, 186);
             this.ProductsListBox.TabIndex = 1;
+            this.ProductsListBox.SelectedIndexChanged += new System.EventHandler(this.ProductsListBox_SelectedIndexChanged);
             // 
             // tabPage2
             // 
@@ -240,6 +253,47 @@
             this.ProductsDataGridView.Name = "ProductsDataGridView";
             this.ProductsDataGridView.Size = new System.Drawing.Size(489, 320);
             this.ProductsDataGridView.TabIndex = 0;
+            // 
+            // SingleNameTextBox
+            // 
+            this.SingleNameTextBox.Location = new System.Drawing.Point(281, 248);
+            this.SingleNameTextBox.Name = "SingleNameTextBox";
+            this.SingleNameTextBox.Size = new System.Drawing.Size(206, 20);
+            this.SingleNameTextBox.TabIndex = 39;
+            // 
+            // SingleQuantityTextBox
+            // 
+            this.SingleQuantityTextBox.Location = new System.Drawing.Point(281, 275);
+            this.SingleQuantityTextBox.Name = "SingleQuantityTextBox";
+            this.SingleQuantityTextBox.Size = new System.Drawing.Size(206, 20);
+            this.SingleQuantityTextBox.TabIndex = 40;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(188, 278);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.TabIndex = 42;
+            this.label2.Text = "Quantity Per Unit";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(188, 251);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 41;
+            this.label8.Text = "Name";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(262, 223);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(108, 13);
+            this.label9.TabIndex = 43;
+            this.label9.Text = "Single Object Binding";
             // 
             // Form1
             // 
@@ -285,6 +339,12 @@
         internal System.Windows.Forms.TextBox QuantityTextBox;
         internal System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.TextBox SingleNameTextBox;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label9;
+        internal System.Windows.Forms.Label label2;
+        internal System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox SingleQuantityTextBox;
     }
 }
 

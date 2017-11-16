@@ -23,7 +23,8 @@ namespace WinFormsData
         {
             CategoryToolStripComboBox.ComboBox.DisplayMember = "CategoryName";
             CategoryToolStripComboBox.ComboBox.ValueMember = "CategoryID";
-            CategoryToolStripComboBox.ComboBox.DataSource = _source.GetCategories();//!!!! Warning if you put this before setting .ValueMember than .ValueMember will not work properly and will return whole object and not just property                                  
+            //!!!! Warning if you put this before setting .ValueMember than .ValueMember will not work properly and will return whole object and not just property                                  
+            CategoryToolStripComboBox.ComboBox.DataSource = _source.GetCategories();
         }        
 
         private void CategoryToolStripComboBox_Click(object sender, EventArgs e)
@@ -54,6 +55,18 @@ namespace WinFormsData
             OrderTextBox.DataBindings.Add("Text", products, "UnitsOnOrder");
             DiscontinuedCheckBox.DataBindings.Clear();
             DiscontinuedCheckBox.DataBindings.Add("Checked", products, "Discontinued");
+        }
+
+        private void ProductsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Product selectedProduct =(Product) ProductsListBox.SelectedValue;
+            if (selectedProduct != null)
+            {
+                SingleNameTextBox.DataBindings.Clear();
+                SingleNameTextBox.DataBindings.Add("Text", selectedProduct, "ProductName");
+                SingleQuantityTextBox.DataBindings.Clear();
+                SingleQuantityTextBox.DataBindings.Add("Text", selectedProduct, "QuantityPerUnit");
+            }
         }
     }
 }
