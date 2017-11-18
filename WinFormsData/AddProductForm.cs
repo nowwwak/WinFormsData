@@ -14,6 +14,7 @@ namespace WinFormsData
     public partial class AddProductForm : Form
     {
         private Category _category;
+
         public AddProductForm(Category category)
         {
             InitializeComponent();

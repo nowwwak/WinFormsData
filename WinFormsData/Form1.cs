@@ -14,6 +14,8 @@ namespace WinFormsData
     public partial class Form1 : Form
     {
         private ObjectSource _source = new ObjectSource();
+        private BindingSource _categoriesBindingSource = new BindingSource();
+        private BindingSource _productsBindingSource = new BindingSource();
         public Form1()
         {
             InitializeComponent();
@@ -21,10 +23,28 @@ namespace WinFormsData
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            _categoriesBindingSource.DataSource = _source.GetCategories();
+            
             CategoryToolStripComboBox.ComboBox.DisplayMember = "CategoryName";
             CategoryToolStripComboBox.ComboBox.ValueMember = "CategoryID";
             //!!!! Warning if you put this before setting .ValueMember than .ValueMember will not work properly and will return whole object and not just property                                  
-            CategoryToolStripComboBox.ComboBox.DataSource = _source.GetCategories();
+            CategoryToolStripComboBox.ComboBox.DataSource = _categoriesBindingSource;
+
+
+            ProductsListBox.DataSource = _productsBindingSource;
+            ProductsListBox.DisplayMember = "ProductName";
+
+            ProductsDataGridView.DataSource = _productsBindingSource;
+            ProductsListBox.DataSource = _productsBindingSource;
+            ProductsListBox.DisplayMember = "ProductName";
+
+            
+            NameTextBox.DataBindings.Add("Text", _productsBindingSource, "ProductName");
+            QuantityTextBox.DataBindings.Add("Text", _productsBindingSource, "QuantityPerUnit");
+            PriceTextBox.DataBindings.Add("Text", _productsBindingSource, "UnitPrice");
+            StockTextBox.DataBindings.Add("Text", _productsBindingSource, "UnitsInStock");
+            OrderTextBox.DataBindings.Add("Text", _productsBindingSource, "UnitsOnOrder");
+            DiscontinuedCheckBox.DataBindings.Add("Checked", _productsBindingSource, "Discontinued");
         }        
 
         private void CategoryToolStripComboBox_Click(object sender, EventArgs e)
@@ -35,26 +55,8 @@ namespace WinFormsData
         private void CategoryToolStripComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int catId = (int)CategoryToolStripComboBox.ComboBox.SelectedValue;
-            IList<Product> products = _source.GetProducts(catId);
-            ProductsListBox.DataSource = products;
-            ProductsListBox.DisplayMember = "ProductName";
-
-            ProductsDataGridView.DataSource = products;
-            ProductsListBox.DataSource = products;
-            ProductsListBox.DisplayMember = "ProductName";
-
-            NameTextBox.DataBindings.Clear();
-            NameTextBox.DataBindings.Add("Text", products, "ProductName");
-            QuantityTextBox.DataBindings.Clear();
-            QuantityTextBox.DataBindings.Add("Text", products, "QuantityPerUnit");
-            PriceTextBox.DataBindings.Clear();
-            PriceTextBox.DataBindings.Add("Text", products, "UnitPrice");
-            StockTextBox.DataBindings.Clear();
-            StockTextBox.DataBindings.Add("Text", products, "UnitsInStock");
-            OrderTextBox.DataBindings.Clear();
-            OrderTextBox.DataBindings.Add("Text", products, "UnitsOnOrder");
-            DiscontinuedCheckBox.DataBindings.Clear();
-            DiscontinuedCheckBox.DataBindings.Add("Checked", products, "Discontinued");
+            _productsBindingSource.DataSource = _source.GetProducts(catId);
+            
         }
 
         private void ProductsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -77,14 +79,26 @@ namespace WinFormsData
             DialogResult result = form.ShowDialog();
 
             if (result == DialogResult.OK)
-                _source.AddProduct(form.Product);
+                //_source.AddProduct(form.Product);
+                _productsBindingSource.Add(form.Product);
         }
 
         private void DeleteToolStripButton_Click(object sender, EventArgs e)
         {
             Product product = (Product)ProductsListBox.SelectedItem;
 
-            _source.DeleteProduct(product);
+            //_source.DeleteProduct(product);
+            _productsBindingSource.Remove(product);
+        }
+
+        private void BackToolStripButton_Click(object sender, EventArgs e)
+        {
+            _productsBindingSource.MovePrevious();
+        }
+
+        private void ForwardToolStripButton_Click(object sender, EventArgs e)
+        {
+            _productsBindingSource.MoveNext();
         }
     }
 }

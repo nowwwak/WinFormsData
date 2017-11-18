@@ -52,7 +52,7 @@
             this.CategoryTextBox.Name = "CategoryTextBox";
             this.CategoryTextBox.ReadOnly = true;
             this.CategoryTextBox.Size = new System.Drawing.Size(209, 20);
-            this.CategoryTextBox.TabIndex = 35;
+            this.CategoryTextBox.TabIndex = 2;
             this.CategoryTextBox.TabStop = false;
             // 
             // CancelButtonControl
@@ -61,7 +61,7 @@
             this.CancelButtonControl.Location = new System.Drawing.Point(253, 200);
             this.CancelButtonControl.Name = "CancelButtonControl";
             this.CancelButtonControl.Size = new System.Drawing.Size(75, 23);
-            this.CancelButtonControl.TabIndex = 47;
+            this.CancelButtonControl.TabIndex = 15;
             this.CancelButtonControl.Text = "Cancel";
             this.CancelButtonControl.UseVisualStyleBackColor = true;
             // 
@@ -71,7 +71,7 @@
             this.OKButton.Location = new System.Drawing.Point(172, 200);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
-            this.OKButton.TabIndex = 46;
+            this.OKButton.TabIndex = 14;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
             // 
@@ -81,7 +81,7 @@
             this.Label2.Location = new System.Drawing.Point(13, 50);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(49, 13);
-            this.Label2.TabIndex = 34;
+            this.Label2.TabIndex = 2;
             this.Label2.Text = "Category";
             // 
             // Label7
@@ -90,7 +90,7 @@
             this.Label7.Location = new System.Drawing.Point(13, 182);
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(69, 13);
-            this.Label7.TabIndex = 44;
+            this.Label7.TabIndex = 12;
             this.Label7.Text = "Discontinued";
             // 
             // Label6
@@ -99,7 +99,7 @@
             this.Label6.Location = new System.Drawing.Point(13, 159);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(75, 13);
-            this.Label6.TabIndex = 42;
+            this.Label6.TabIndex = 10;
             this.Label6.Text = "Units on Order";
             // 
             // Label5
@@ -108,7 +108,7 @@
             this.Label5.Location = new System.Drawing.Point(13, 133);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(73, 13);
-            this.Label5.TabIndex = 40;
+            this.Label5.TabIndex = 8;
             this.Label5.Text = "Units in Stock";
             // 
             // Label4
@@ -117,7 +117,7 @@
             this.Label4.Location = new System.Drawing.Point(13, 107);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(53, 13);
-            this.Label4.TabIndex = 38;
+            this.Label4.TabIndex = 6;
             this.Label4.Text = "Unit Price";
             // 
             // Label3
@@ -126,7 +126,7 @@
             this.Label3.Location = new System.Drawing.Point(13, 81);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(87, 13);
-            this.Label3.TabIndex = 36;
+            this.Label3.TabIndex = 4;
             this.Label3.Text = "Quantity Per Unit";
             // 
             // Label1
@@ -135,7 +135,7 @@
             this.Label1.Location = new System.Drawing.Point(13, 27);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(35, 13);
-            this.Label1.TabIndex = 32;
+            this.Label1.TabIndex = 0;
             this.Label1.Text = "Name";
             // 
             // OrderTextBox
@@ -143,7 +143,7 @@
             this.OrderTextBox.Location = new System.Drawing.Point(119, 152);
             this.OrderTextBox.Name = "OrderTextBox";
             this.OrderTextBox.Size = new System.Drawing.Size(209, 20);
-            this.OrderTextBox.TabIndex = 43;
+            this.OrderTextBox.TabIndex = 11;
             // 
             // DiscontinuedCheckBox
             // 
@@ -151,7 +151,7 @@
             this.DiscontinuedCheckBox.Location = new System.Drawing.Point(119, 182);
             this.DiscontinuedCheckBox.Name = "DiscontinuedCheckBox";
             this.DiscontinuedCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.DiscontinuedCheckBox.TabIndex = 45;
+            this.DiscontinuedCheckBox.TabIndex = 13;
             this.DiscontinuedCheckBox.UseVisualStyleBackColor = true;
             // 
             // StockTextBox
@@ -159,28 +159,28 @@
             this.StockTextBox.Location = new System.Drawing.Point(119, 126);
             this.StockTextBox.Name = "StockTextBox";
             this.StockTextBox.Size = new System.Drawing.Size(209, 20);
-            this.StockTextBox.TabIndex = 41;
+            this.StockTextBox.TabIndex = 9;
             // 
             // PriceTextBox
             // 
             this.PriceTextBox.Location = new System.Drawing.Point(119, 100);
             this.PriceTextBox.Name = "PriceTextBox";
             this.PriceTextBox.Size = new System.Drawing.Size(209, 20);
-            this.PriceTextBox.TabIndex = 39;
+            this.PriceTextBox.TabIndex = 7;
             // 
             // QuantityTextBox
             // 
             this.QuantityTextBox.Location = new System.Drawing.Point(119, 74);
             this.QuantityTextBox.Name = "QuantityTextBox";
             this.QuantityTextBox.Size = new System.Drawing.Size(209, 20);
-            this.QuantityTextBox.TabIndex = 37;
+            this.QuantityTextBox.TabIndex = 5;
             // 
             // NameTextBox
             // 
             this.NameTextBox.Location = new System.Drawing.Point(119, 21);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(209, 20);
-            this.NameTextBox.TabIndex = 33;
+            this.NameTextBox.TabIndex = 1;
             // 
             // AddProductForm
             // 
