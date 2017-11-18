@@ -29,11 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.CategoryToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.SingleQuantityTextBox = new System.Windows.Forms.TextBox();
+            this.SingleNameTextBox = new System.Windows.Forms.TextBox();
             this.Label7 = new System.Windows.Forms.Label();
             this.Label6 = new System.Windows.Forms.Label();
             this.Label5 = new System.Windows.Forms.Label();
@@ -49,12 +55,9 @@
             this.ProductsListBox = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ProductsDataGridView = new System.Windows.Forms.DataGridView();
-            this.SingleNameTextBox = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.SingleQuantityTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.AddToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.DeleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -66,7 +69,9 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
-            this.CategoryToolStripComboBox});
+            this.CategoryToolStripComboBox,
+            this.AddToolStripButton,
+            this.DeleteToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(503, 25);
@@ -125,6 +130,47 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Form";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(262, 223);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(108, 13);
+            this.label9.TabIndex = 43;
+            this.label9.Text = "Single Object Binding";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(188, 278);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.TabIndex = 42;
+            this.label2.Text = "Quantity Per Unit";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(188, 251);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 41;
+            this.label8.Text = "Name";
+            // 
+            // SingleQuantityTextBox
+            // 
+            this.SingleQuantityTextBox.Location = new System.Drawing.Point(281, 275);
+            this.SingleQuantityTextBox.Name = "SingleQuantityTextBox";
+            this.SingleQuantityTextBox.Size = new System.Drawing.Size(206, 20);
+            this.SingleQuantityTextBox.TabIndex = 40;
+            // 
+            // SingleNameTextBox
+            // 
+            this.SingleNameTextBox.Location = new System.Drawing.Point(281, 248);
+            this.SingleNameTextBox.Name = "SingleNameTextBox";
+            this.SingleNameTextBox.Size = new System.Drawing.Size(206, 20);
+            this.SingleNameTextBox.TabIndex = 39;
             // 
             // Label7
             // 
@@ -254,46 +300,25 @@
             this.ProductsDataGridView.Size = new System.Drawing.Size(489, 320);
             this.ProductsDataGridView.TabIndex = 0;
             // 
-            // SingleNameTextBox
+            // AddToolStripButton
             // 
-            this.SingleNameTextBox.Location = new System.Drawing.Point(281, 248);
-            this.SingleNameTextBox.Name = "SingleNameTextBox";
-            this.SingleNameTextBox.Size = new System.Drawing.Size(206, 20);
-            this.SingleNameTextBox.TabIndex = 39;
+            this.AddToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.AddToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("AddToolStripButton.Image")));
+            this.AddToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AddToolStripButton.Name = "AddToolStripButton";
+            this.AddToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.AddToolStripButton.Text = "ToolStripButton1";
+            this.AddToolStripButton.Click += new System.EventHandler(this.AddToolStripButton_Click);
             // 
-            // SingleQuantityTextBox
+            // DeleteToolStripButton
             // 
-            this.SingleQuantityTextBox.Location = new System.Drawing.Point(281, 275);
-            this.SingleQuantityTextBox.Name = "SingleQuantityTextBox";
-            this.SingleQuantityTextBox.Size = new System.Drawing.Size(206, 20);
-            this.SingleQuantityTextBox.TabIndex = 40;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(188, 278);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
-            this.label2.TabIndex = 42;
-            this.label2.Text = "Quantity Per Unit";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(188, 251);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 41;
-            this.label8.Text = "Name";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(262, 223);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(108, 13);
-            this.label9.TabIndex = 43;
-            this.label9.Text = "Single Object Binding";
+            this.DeleteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.DeleteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteToolStripButton.Image")));
+            this.DeleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.DeleteToolStripButton.Name = "DeleteToolStripButton";
+            this.DeleteToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.DeleteToolStripButton.Text = "ToolStripButton1";
+            this.DeleteToolStripButton.Click += new System.EventHandler(this.DeleteToolStripButton_Click);
             // 
             // Form1
             // 
@@ -345,6 +370,8 @@
         internal System.Windows.Forms.Label label2;
         internal System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox SingleQuantityTextBox;
+        internal System.Windows.Forms.ToolStripButton AddToolStripButton;
+        internal System.Windows.Forms.ToolStripButton DeleteToolStripButton;
     }
 }
 

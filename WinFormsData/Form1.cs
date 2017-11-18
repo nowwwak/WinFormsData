@@ -68,5 +68,23 @@ namespace WinFormsData
                 SingleQuantityTextBox.DataBindings.Add("Text", selectedProduct, "QuantityPerUnit");
             }
         }
+
+        private void AddToolStripButton_Click(object sender, EventArgs e)
+        {
+            Category category = (Category) CategoryToolStripComboBox.SelectedItem;
+
+            AddProductForm form = new AddProductForm(category);
+            DialogResult result = form.ShowDialog();
+
+            if (result == DialogResult.OK)
+                _source.AddProduct(form.Product);
+        }
+
+        private void DeleteToolStripButton_Click(object sender, EventArgs e)
+        {
+            Product product = (Product)ProductsListBox.SelectedItem;
+
+            _source.DeleteProduct(product);
+        }
     }
 }
