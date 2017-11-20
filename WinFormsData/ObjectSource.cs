@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using WinFormsData;
 
 namespace Data
 {
-    public class ObjectSource
+    public class ObjectSource : ISource
     {
         private List<Category> _categories;
         private List<Product> _products;
@@ -103,12 +105,12 @@ namespace Data
             _products.Add(new Product(77, "Original Frankfurter grüne Soße", 2, "12 boxes", 13.0m, 32, 0, false));
         }
 
-        public IList<Category> GetCategories()
+        public object GetCategories()
         {
             return _categories;
         }
 
-        public IList<Product> GetProducts(int categoryId)
+        public object GetProducts(int categoryId)
         {
             var result = from p in _products
                          where p.CategoryId == categoryId
@@ -117,15 +119,29 @@ namespace Data
             return result.ToList();
         }
 
-        public void DeleteProduct(Product product)
+        public void DeleteProduct(BindingSource bindingSource, int productId)
         {
-            _products.Remove(product);
+            var query = from p in _products
+                        where p.ProductID == productId
+                        select p;
+            var product = query.Single();
+
+            bindingSource.Remove(product);
         }
 
-        public void AddProduct(Product product)
+        public void AddProduct(BindingSource bindingSource, Product product)
         {
-            _products.Add(product);
+            var maxId = (
+                from p in _products
+                select p).Max(p => p.ProductID);
+            product.ProductID = maxId + 1;
+
+            bindingSource.Add(product);
         }
 
+        public void Save()
+        {
+            //Nothing to do
+        }       
     }
 }
