@@ -114,7 +114,8 @@
             this.SourceToolStripComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SourceToolStripComboBox.Items.AddRange(new object[] {
             "Objects",
-            "DataSet"});
+            "DataSet",
+            "EntityFramework"});
             this.SourceToolStripComboBox.Name = "SourceToolStripComboBox";
             this.SourceToolStripComboBox.Size = new System.Drawing.Size(121, 25);
             this.SourceToolStripComboBox.SelectedIndexChanged += new System.EventHandler(this.SourceToolStripComboBox_SelectedIndexChanged);

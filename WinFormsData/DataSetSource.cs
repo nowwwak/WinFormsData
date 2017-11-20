@@ -33,7 +33,7 @@ namespace WinFormsData
         }
         //for datatable we don't need to add to bindingSource
         //because there is proper notifications
-        public void AddProduct(BindingSource bindingSource, Product product)
+        public bool AddProduct(Product product)
         {
             DataTable table = _dataSet.Tables["Products"];
             _nextId -= 1;
@@ -53,9 +53,11 @@ namespace WinFormsData
             row["Discontinued"] = product.Discontinued;
 
             table.Rows.Add(row);
+
+            return false;
         }
 
-        public void DeleteProduct(BindingSource bindingSource, int productId)
+        public bool DeleteProduct(int productId)
         {
             DataTable table = _dataSet.Tables["Products"];
 
@@ -66,6 +68,8 @@ namespace WinFormsData
             DataRow row = query.Single();
 
             row.Delete();
+
+            return false;
         }
 
         public object GetCategories()

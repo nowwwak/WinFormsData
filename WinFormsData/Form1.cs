@@ -19,6 +19,7 @@ namespace WinFormsData
         private DataSetSource _dataSetSource = new DataSetSource();
         private BindingSource _categoriesBindingSource = new BindingSource();
         private BindingSource _productsBindingSource = new BindingSource();
+        private EfSource _efSource = new EfSource();
         public Form1()
         {
             InitializeComponent();
@@ -41,12 +42,12 @@ namespace WinFormsData
             ProductsListBox.ValueMember = "ProductID";
             ProductsListBox.DataSource = _productsBindingSource;
             
-            NameTextBox.DataBindings.Add("Text", _productsBindingSource, "ProductName");
-            QuantityTextBox.DataBindings.Add("Text", _productsBindingSource, "QuantityPerUnit");
-            PriceTextBox.DataBindings.Add("Text", _productsBindingSource, "UnitPrice");
-            StockTextBox.DataBindings.Add("Text", _productsBindingSource, "UnitsInStock");
-            OrderTextBox.DataBindings.Add("Text", _productsBindingSource, "UnitsOnOrder");
-            DiscontinuedCheckBox.DataBindings.Add("Checked", _productsBindingSource, "Discontinued");
+            NameTextBox.DataBindings.Add("Text", _productsBindingSource, "ProductName", true);
+            QuantityTextBox.DataBindings.Add("Text", _productsBindingSource, "QuantityPerUnit", true);
+            PriceTextBox.DataBindings.Add("Text", _productsBindingSource, "UnitPrice", true);
+            StockTextBox.DataBindings.Add("Text", _productsBindingSource, "UnitsInStock", true);
+            OrderTextBox.DataBindings.Add("Text", _productsBindingSource, "UnitsOnOrder", true);
+            DiscontinuedCheckBox.DataBindings.Add("Checked", _productsBindingSource, "Discontinued", true);
         }
 
         private void BindCategories()
@@ -77,6 +78,11 @@ namespace WinFormsData
                         _dataSetSource = new DataSetSource();
                     }
                     _currentSource = _dataSetSource;
+                    break;
+                case 2:
+                    if (_efSource == null)
+                        _efSource = new EfSource();
+                    _currentSource = _efSource;
                     break;
             }
         }
@@ -112,13 +118,21 @@ namespace WinFormsData
             DialogResult result = form.ShowDialog();
 
             if (result == DialogResult.OK)
-                _currentSource.AddProduct(_productsBindingSource, form.Product);
+            {
+                bool rebind = _currentSource.AddProduct(form.Product);
+                if (rebind)
+                    BindProducts();
+            }
         }
 
         private void DeleteToolStripButton_Click(object sender, EventArgs e)
         {
             int productId = (int) ProductsListBox.SelectedValue;
-            _currentSource.DeleteProduct(_productsBindingSource, productId);        }
+            bool rebind = _currentSource.DeleteProduct(productId);
+            if (rebind)
+                BindProducts();
+        }
+        
 
         private void BackToolStripButton_Click(object sender, EventArgs e)
         {
@@ -143,3 +157,4 @@ namespace WinFormsData
         }
     }
 }
+

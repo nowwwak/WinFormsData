@@ -119,24 +119,27 @@ namespace Data
             return result.ToList();
         }
 
-        public void DeleteProduct(BindingSource bindingSource, int productId)
+        public bool DeleteProduct(int productId)
         {
             var query = from p in _products
                         where p.ProductID == productId
                         select p;
             var product = query.Single();
 
-            bindingSource.Remove(product);
+            _products.Remove(product);
+            return true;
         }
 
-        public void AddProduct(BindingSource bindingSource, Product product)
+        public bool AddProduct(Product product)
         {
             var maxId = (
                 from p in _products
                 select p).Max(p => p.ProductID);
             product.ProductID = maxId + 1;
 
-            bindingSource.Add(product);
+            _products.Add(product);
+
+            return true;
         }
 
         public void Save()

@@ -12,8 +12,13 @@ namespace WinFormsData
     {
         object GetCategories();
         object GetProducts(int categoryId);
-        void DeleteProduct(BindingSource bindingSource, int productId);
-        void AddProduct(BindingSource bindingSource, Product product);
+        /// <returns>Returns true if rebind is needed. For implementation with DataSet this will return false because
+        /// rebind is done automatically and in other cases we needed to notify that rebind is needed</returns>
+        bool DeleteProduct(int productId);
+
+        /// <returns>Returns true if rebind is needed. For implementation with DataSet this will return false because
+        /// rebind is done automatically and in other cases we needed to notify that rebind is needed</returns>
+        bool AddProduct(Product product);
         void Save();
     }
 }
